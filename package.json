@@ -1,0 +1,10 @@
+{
+  "name": "auto-faucet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "NEIN <8bu2010@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.7.1"
+  }
+}
