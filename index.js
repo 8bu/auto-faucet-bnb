@@ -6,11 +6,14 @@ const { chromium } = require("playwright");
 
   const triggerCountDown = (duration) => {
     setTimeout(() => {
-      // process.stdout.clearLine();  // clear current text
-      // process.stdout.cursorTo(0);  // move cursor to beginning of line
-      process.stdout.write(`${duration/1000} second(s) left!\r`);
-      if (duration > 1000) {
+      process.stdout.clearLine();  // clear current text
+      process.stdout.cursorTo(0);  // move cursor to beginning of line
+      process.stdout.write(`${duration/1000} second(s) left!`);
+      if (duration > 0) {
         triggerCountDown(duration - 1000);
+      } else {
+        process.stdout.clearLine();  // clear current text
+        process.stdout.cursorTo(0);  // move cursor to beginning of line
       }
     }, 1000);
   }
@@ -40,9 +43,9 @@ const { chromium } = require("playwright");
       ".input-group > .open > .dropdown-menu > li:nth-child(3) > a"
     );
     console.debug('REQUESTED 6.2 BNB');
-    triggerCountDown(480000);
+    triggerCountDown(4000);
   };
   await getBNB();
 
-  setInterval(getBNB, 480000);
+  setInterval(getBNB, 5000);
 })();
