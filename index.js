@@ -6,8 +6,7 @@ const { chromium } = require("playwright");
 
   const triggerCountDown = (duration) => {
     setTimeout(() => {
-      process.stdout.cursorTo(0);  // move cursor to beginning of line
-      process.stdout.write(`${duration/1000} second(s) left!`);
+      console.log(`${duration/1000} second(s) left!\r`);
       if (duration > 0) {
         triggerCountDown(duration - 60000);
       }
